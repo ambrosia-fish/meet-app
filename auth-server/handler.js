@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 'use strict';
 const { google } = require("googleapis");
 const calendar = google.calendar("v3");
@@ -22,17 +21,17 @@ module.exports.getAuthURL = async () => {
     access_type: "offline",
     scope: SCOPES,
   });
-=======
-exports.hello = async (event) => {
->>>>>>> parent of d6c995a (Initial setup of getAuth serverless function)
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: JSON.stringify({
-      message: "Go Serverless v4! Your function executed successfully!",
+      authUrl,
     }),
   };
 };
-<<<<<<< HEAD
 module.exports.getAccessToken = async (event) => {
   // Decode authorization code extracted from the URL query
   const code = decodeURIComponent(`${event.pathParameters.code}`);
@@ -110,5 +109,3 @@ module.exports.getCalendarEvents = async (event) => {
     };
   });
 };
-=======
->>>>>>> parent of d6c995a (Initial setup of getAuth serverless function)
