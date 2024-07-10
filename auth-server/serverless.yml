@@ -11,6 +11,42 @@ functions:
   hello:
     handler: handler.hello
     events:
+<<<<<<< HEAD
+      - http:
+          path: api/get-auth-url
+          method: get
+          cors: true
+
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get
+          cors: true
+  
+  getCalendarEvents:
+    handler: handler.getCalendarEvents
+    events: 
+      - http:
+          path: api/get-events/{access_token}
+          method: get
+          cors: true
+
+
+custom:
+  cors:
+    origin: '*'
+    headers:
+      - Content-Type
+      - X-Amz-Date
+      - Authorization
+      - X-Api-Key
+      - X-Amz-Security-Token
+      - X-Amz-User-Agent
+    allowCredentials: false
+=======
       - httpApi:
           path: /
           method: get
+>>>>>>> parent of d6c995a (Initial setup of getAuth serverless function)
