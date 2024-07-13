@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 client_secret_310851716520-lbi0m0v3b8v07rs9km9e68kaltnvctkq.apps.googleusercontent.com.json
 config.json
-auth-server/config.json
+/auth-server/config.json
