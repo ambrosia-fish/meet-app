@@ -1,7 +1,7 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
 org: tajinegames
 # "service" is the name of this project. This will also be added to your AWS resource names.
-service: Meet App
+service: meet-app-dev
 
 provider:
   name: aws
