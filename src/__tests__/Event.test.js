@@ -11,7 +11,7 @@ describe('Event Component', () => {
   });
 
   test('renders event details correctly and handles user interactions', () => {
-    const { rerender } = render(<Event event={allEvents[0]} />);
+    render(<Event event={allEvents[0]} />);
 
     // Test for event title
     expect(screen.getByText(allEvents[0].summary)).toBeInTheDocument();
@@ -30,13 +30,15 @@ describe('Event Component', () => {
     fireEvent.click(showDetailsButton);
     expect(screen.getByText('Hide Details')).toBeInTheDocument();
     
-    // Check if additional details are displayed
-    if (allEvents[0].description) {
-      expect(screen.getByText(allEvents[0].description)).toBeInTheDocument();
-    }
-    
+    // Check if description is present
+    const descriptionElement = screen.getByText('About event:');
+    expect(descriptionElement).toBeInTheDocument();
+    expect(descriptionElement.nextElementSibling).toBeInTheDocument();
+    expect(descriptionElement.nextElementSibling.tagName.toLowerCase()).toBe('p');
+
     // Test hiding details
     fireEvent.click(screen.getByText('Hide Details'));
     expect(screen.getByText('Show Details')).toBeInTheDocument();
+    expect(screen.queryByText('About event:')).not.toBeInTheDocument();
   });
 });
