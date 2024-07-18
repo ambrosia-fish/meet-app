@@ -94,3 +94,32 @@ Scenario 2: Event planner can edit an existing event
 Given the event planner is viewing the details of an event they organized
 When the planner clicks on "Edit Event" and modifies the event details
 Then the changes should be saved and reflected in the event listing
+
+### Feature 6: Specify Number of Events
+
+### User Story
+
+As an event-goer,
+I should be able to specify the number of events I want to view in the events list
+So that I can see more or fewer events in the events list at once.
+
+### Scenarios (Gherkin Syntax)
+Scenario 1: When user hasn't specified a number, 32 is the default number
+Given the user hasn't specified a number of events
+When the user opens the app
+Then the user should see 32 events in the events list
+
+Scenario 2: User can change the number of events they want to see
+Given the main page is open
+When the user changes the number of events in the input field
+Then the user should see the specified number of events in the events list
+
+Scenario 3: User specifies 0 as the number of events
+Given the main page is open
+When the user specifies 0 as the number of events
+Then the user should see a message indicating no events are displayed
+
+Scenario 4: User specifies a number greater than the total number of available events
+Given the main page is open and there are 50 total events available
+When the user specifies 100 as the number of events
+Then the user should see all 50 available events in the events list
