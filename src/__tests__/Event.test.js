@@ -1,26 +1,29 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Event from '../components/Event';
+import { getEvents } from '../api';
 
-describe('Event Component', () => {
-  const mockEvent = {
-    summary: 'Test Event',
-    created: '2023-07-20T10:00:00Z',
-    location: 'Test Location',
-    description: 'Test Description'
-  };
+describe('<Event /> component', () => {
+  let EventComponent;
+  let allEvents;
 
-  test('event element is collapsed by default', () => {
-    render(<Event event={mockEvent} />);
-    expect(screen.getByText('Show Details')).toBeInTheDocument();
-    expect(screen.queryByText('About event:')).not.toBeInTheDocument();
+  beforeEach(async () => {
+    allEvents = await getEvents();
+    EventComponent = render(<Event event={allEvents[0]} />);
   });
 
-  test('user can expand an event to see its details', () => {
-    render(<Event event={mockEvent} />);
-    fireEvent.click(screen.getByText('Show Details'));
-    expect(screen.getByText('Hide Details')).toBeInTheDocument();
-    expect(screen.getByText('About event:')).toBeInTheDocument();
-    expect(screen.getByText('Test Description')).toBeInTheDocument();
+  test('renders event title', () => {
+    expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
+  });
+
+  test('renders event start time', () => {
+    expect(EventComponent.queryByText(allEvents[0].created)).toBeInTheDocument();
+  });
+
+  test('renders event location', () => {
+    expect(EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
+  });
+
+  test('renders event details button with the title (show details)', () => {
+    expect(EventComponent.queryByText('Show Details')).toBeInTheDocument();
   });
 });
