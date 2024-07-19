@@ -3,7 +3,6 @@ import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { getEvents } from './api';
-
 import './App.css';
 
 const App = () => {
@@ -22,8 +21,8 @@ const App = () => {
   return (
     <div className="App">
       <CitySearch />
-      <NumberOfEvents />
-      <EventList events={events} />
+      <NumberOfEvents setCurrentNOE={() => {}} />
+      <EventList />
     </div>
   );
 };
