@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
@@ -21,8 +21,8 @@ const App = () => {
   return (
     <div className="App">
       <CitySearch />
-      <NumberOfEvents setCurrentNOE={() => {}} />
-      <EventList />
+      <NumberOfEvents />
+      <EventList events={events} />
     </div>
   );
 };
