@@ -16,6 +16,13 @@ describe('<EventList /> component', () => {
     EventListComponent = render(<EventList events={allEvents} />);
     expect(EventListComponent.getAllByRole("listitem")).toHaveLength(allEvents.length);
   });
+
+  test('renders empty list when events prop is falsy', () => {
+    EventListComponent = render(<EventList events={null} />);
+    const listElement = EventListComponent.queryByRole("list");
+    expect(listElement).toBeInTheDocument();
+    expect(listElement).toBeEmptyDOMElement();
+  });
 });
 
 
