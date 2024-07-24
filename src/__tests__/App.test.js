@@ -1,4 +1,6 @@
-import { render } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { getEvents } from '../api';
 import App from '../App';
 
 describe('<App /> component', () => {
@@ -18,4 +20,8 @@ describe('<App /> component', () => {
   test('render NumberOfEvents', () => {
     expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
   });
+});
+
+
+describe('<App /> integration', () => {
 });
