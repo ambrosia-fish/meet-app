@@ -2,7 +2,7 @@
   "name": "meet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ambrosia-fish.github.io/meet-app",
+  "homepage": "https://ambrosia-fish.github.io/meet-app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^15.0.6",
