@@ -7,12 +7,16 @@ describe('<App /> component', () => {
     AppDOM = render(<App />).container.firstChild;
   })
 
+  test('renders NumberOfEvents component', () => {
+    const numberOfEventsComponent = AppDOM.querySelector('#number-of-events');
+    expect(numberOfEventsComponent).toBeInTheDocument();
+  });
 
   test('renders list of events', () => {
-      expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
+    expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
   });
 
   test('render CitySearch', () => {
-      expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
+    expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
   });
 });
