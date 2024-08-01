@@ -8,9 +8,11 @@ provider:
   runtime: nodejs20.x
   region: us-east-1
   environment:
+    REDIRECT_URI: https://ambrosia-fish.github.io/meet-app
     CLIENT_ID: ${file(config.json):CLIENT_ID}
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+    
 
 functions:
   getAuthURL:
