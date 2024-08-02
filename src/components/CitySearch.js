@@ -22,7 +22,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   };
 
   useEffect(() => {
-    setSuggestions(allLocations || []); // CHANGED: Ensure suggestions is always an array
+    setSuggestions(allLocations || []); 
   }, [`${allLocations}`]);
 
   return (
