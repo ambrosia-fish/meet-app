@@ -1,27 +1,28 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NumberOfEvents from '../components/NumberOfEvents';
 
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsComponent;
+
   beforeEach(() => {
-    NumberOfEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}} />);
+    NumberOfEventsComponent = render(<NumberOfEvents />);
   });
 
-  test('renders number of events text input', () => {
-    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
-    expect(numberTextBox).toBeInTheDocument();
+  test('renders text input', () => {
+    const textInput = screen.getByRole('textbox');
+    expect(textInput).toBeInTheDocument();
   });
 
-  test('default value of the input field is 32', () => {
-    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
-    expect(numberTextBox).toHaveValue('32');
+  test('default value of input is 32', () => {
+    const textInput = screen.getByRole('textbox');
+    expect(textInput).toHaveValue('32');
   });
 
-  test('value of input field changes when user types in it', async () => {
+  test('value changes when user types', async () => {
     const user = userEvent.setup();
-    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
-    await user.type(numberTextBox, '{backspace}{backspace}10');
-    expect(numberTextBox).toHaveValue('10');
+    const textInput = screen.getByRole('textbox');
+    await user.type(textInput, '{backspace}{backspace}10');
+    expect(textInput).toHaveValue('10');
   });
 });
