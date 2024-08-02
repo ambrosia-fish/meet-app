@@ -30,7 +30,7 @@ const App = () => {
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity}
-      /> {/* // CORRECT: allLocations is properly passed to CitySearch */}
+      /> 
       <NumberOfEvents />
       <EventList events={events}/>
     </div>

@@ -38,7 +38,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/" + "/" + token; // CHANGED: Replace with your actual endpoint
+    const url = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-events" + "/" + token; // CHANGED: Replace with your actual endpoint
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
@@ -71,7 +71,7 @@ export const getAccessToken = async () => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
-    'https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/token/' + '/' + encodeCode // CHANGED: Replace with your actual endpoint
+    'https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode // CHANGED: Replace with your actual endpoint
   );
   const { access_token } = await response.json();
   access_token && localStorage.setItem("access_token", access_token);
