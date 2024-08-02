@@ -9,16 +9,17 @@ describe('<App /> component', () => {
     AppDOM = render(<App />).container.firstChild;
   })
 
+  test('renders NumberOfEvents component', () => {
+    const numberOfEventsComponent = AppDOM.querySelector('#number-of-events');
+    expect(numberOfEventsComponent).toBeInTheDocument();
+  });
+
   test('renders list of events', () => {
     expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
   });
 
   test('render CitySearch', () => {
     expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
-  });
-
-  test('render NumberOfEvents', () => {
-    expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
   });
 });
 
@@ -49,6 +50,5 @@ describe('<App /> integration', () => {
     allRenderedEventItems.forEach(event => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
-    
   });
 });

@@ -46,7 +46,7 @@
       const resultLink = document.getElementById("authURL");
       // Replace this with your own endpoint
 
-      const getAuthURL = "https://qu58p4p4za.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url";
+      const getAuthURL = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url";
       getAuthUrlButton.onclick = function () {
         fetch(getAuthURL)
           .then(function (response) {
@@ -66,14 +66,14 @@
       const getAccessToken = document.getElementById("getToken");
       const accessTokenElement = document.getElementById("accessToken");
       
-      const getToken = "https://qu58p4p4za.execute-api.us-east-1.amazonaws.com/dev/api/token";
+      const getToken = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/token/";
       getAccessToken.onclick = function () {
         let code = codeValue.value.trim();
         // if the authorization code is not URL-encoded, then URL-encode it.
         if (decodeURIComponent(code) === code) {
           code = encodeURIComponent(codeValue.value);
         }
-        const getTokenRequest = getToken + '/' + code;
+        const getTokenRequest = getToken + code;
         fetch(getTokenRequest)
           .then(function (response) {
             return response.json();
@@ -89,7 +89,7 @@
       };
       const getEvents = document.getElementById("getEvents");
       const events = document.getElementById("events");
-      const getCalendarEvents = "https://qu58p4p4za.execute-api.us-east-1.amazonaws.com/dev/api/get-events";
+      const getCalendarEvents = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/";
 
       getEvents.onclick = function () {
         const { access_token } = JSON.parse(accessTokenElement.innerText);

@@ -14,6 +14,21 @@ const checkToken = async (accessToken) => {
   return result;
 };
 
+const removeQuery = () => {
+  let newurl;
+  if (window.history.pushState && window.location.pathname) {
+    newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+};
+
 export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
     return mockData;
@@ -23,7 +38,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url =  "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const url = "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-events/" + "/" + token; // CHANGED: Replace with your actual endpoint
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
@@ -42,7 +57,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        "https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url" // CHANGED: Replace with your actual endpoint
       );
       const result = await response.json();
       const { authUrl } = result;
@@ -53,26 +68,10 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
-const removeQuery = () => {
-  let newurl;
-  if (window.history.pushState && window.location.pathname) {
-    newurl =
-      window.location.protocol +
-      "//" +
-      window.location.host +
-      "/meet-app" + // Add this
-      window.location.pathname;
-    window.history.pushState("", "", newurl);
-  } else {
-    newurl = window.location.protocol + "//" + window.location.host + "/meet-app/"; // Add "/meet-app" here
-    window.history.pushState("", "", newurl);
-  }
-};
-
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
-    'https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+    'https://xpocf08sfd.execute-api.us-east-1.amazonaws.com/dev/api/token/' + '/' + encodeCode // CHANGED: Replace with your actual endpoint
   );
   const { access_token } = await response.json();
   access_token && localStorage.setItem("access_token", access_token);
