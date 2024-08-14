@@ -7,10 +7,11 @@ import { extractLocations, getEvents } from '../api';
 describe('<CitySearch /> component', () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch 
-      allLocations={[]} 
-      setCurrentCity={() => {}}
-    />); // CORRECT: Mock props are provided for testing
+    CitySearchComponent = render(<CitySearch
+      allLocations={[]}
+      setCurrentCity={() => { }}
+      setInfoAlert={() => { }}
+    />); 
   });
 
   test('renders text input', () => {
@@ -40,6 +41,7 @@ describe('<CitySearch /> component', () => {
     CitySearchComponent.rerender(<CitySearch 
       allLocations={allLocations}
       setCurrentCity={() => {}}
+      setInfoAlert={() => { }}
     />);
 
     // user types "Berlin" in city textbox
@@ -66,6 +68,7 @@ describe('<CitySearch /> component', () => {
     CitySearchComponent.rerender(<CitySearch
       allLocations={allLocations}
       setCurrentCity={() => { }}
+      setInfoAlert={() => { }}
     />);
 
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
