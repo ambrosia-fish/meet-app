@@ -48,7 +48,7 @@ const mockData = [
      "updated": "2020-05-27T11:45:37.792Z",
      "summary": "React is Fun",
      "description": "Love HTML, CSS, and JS? Want to become a cool front-end developer? \n\nReact is one of the most popular front-end frameworks. There is a huge number of job openings for React developers in most cities. \n\nJoin us in our free React training sessions and give your career a new direction. ",
-     "location": "Berlin, Germany",
+     "location": "Dubai - United Arab",
      "creator": {
       "email": "fullstackwebdev@careerfoundry.com",
       "self": true
