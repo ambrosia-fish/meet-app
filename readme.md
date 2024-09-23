@@ -16,7 +16,7 @@ Table of Contents
 Installation
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/meet-app.git
+   git clone https://github.com/ambrosia-fish/meet-app.git
    cd meet-app
 
 2. Install dependencies:
