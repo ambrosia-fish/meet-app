@@ -1,87 +1,75 @@
-# Meet App Features
+Meet App
 
-## Feature 1: Filter Events By City
+Overview
 
-### User Story
-As an event-goer,
-I should be able to filter events by city
-So that I can see a list of events taking place in that city.
+The Meet App is designed to help event-goers find and manage events based on their preferences. It allows users to filter events by city, view event details, search for events by date, and specify the number of events to display.
 
-### Scenarios (Gherkin Syntax)
+Table of Contents
 
-Scenario 1: When user hasn't searched for a city, show upcoming events from all cities
-Given user hasn't searched for any city
-When the user opens the app
-Then the user should see a list of upcoming events
+- Installation
+- Usage
+- Features
+- User Stories and Scenarios
+- Technologies Used
+- License
 
-Scenario 2: User should see a list of suggestions when they search for a city
-Given the main page is open
-When user starts typing in the city textbox
-Then the user should receive a list of cities (suggestions) that match what they've typed
+Installation
 
-## Feature 2: Show/Hide Event Details
+1. Clone the repository:
+   git clone https://github.com/yourusername/meet-app.git
+   cd meet-app
 
-### User Story
-As an event-goer,
-I should be able to show/hide event details
-So that I can see more/less information about an event.
+2. Install dependencies:
+   npm install
 
-### Scenarios (Gherkin Syntax)
+3. Start the development server:
+   npm start
 
-Scenario 1: An event element is collapsed by default
-Given the user is on the main page
-When the user views the list of events
-Then all event elements should be collapsed
+4. Open your browser and navigate to http://localhost:3000 to view the application.
 
-Scenario 2: User can expand an event to see its details
-Given the user is viewing a collapsed event element
-When the user clicks on the "Show Details" button for an event
-Then the event element should expand to show the event details
+Usage
 
-## Feature 3: Search Events by Date
+The Meet App allows users to:
+- Filter events by city
+- Show or hide event details
+- Search for events by specific date or date range
+- Specify the number of events to view
 
-### User Story
-As an event-goer,
-I should be able to search for events by date
-So that I can find events happening on a specific day or within a date range.
+Features
 
-### Scenarios (Gherkin Syntax)
+1. **Filter Events By City**
+   - Users can filter events based on the city they are interested in. If no city is specified, the app displays upcoming events from all cities.
 
-Scenario 1: User can search for events on a specific date
-Given the user is on the main page
-When the user selects a specific date in the date picker
-Then the app should display a list of events happening on that date
+2. **Show/Hide Event Details**
+   - Users can expand or collapse event details to view more or less information.
 
-Scenario 2: User can search for events within a date range
-Given the user is on the main page
-When the user selects a start date and an end date in the date picker
-Then the app should display a list of events happening within that date range
+3. **Search Events by Date**
+   - Users can search for events occurring on a specific date or within a date range using a date picker.
 
-### Feature 4: Specify Number of Events
+4. **Specify Number of Events**
+   - Users can specify the number of events to display in the list, with a default of 32 events if no number is specified.
 
-### User Story
+User Stories and Scenarios
 
-As an event-goer,
-I should be able to specify the number of events I want to view in the events list
-So that I can see more or fewer events in the events list at once.
+- **Feature 1: Filter Events By City**
+  - User Story: As an event-goer, I should be able to filter events by city.
+  - Scenarios:
+    - When user hasn't searched for a city, show upcoming events from all cities.
+    - User should see a list of suggestions when they search for a city.
 
-### Scenarios (Gherkin Syntax)
-Scenario 1: When user hasn't specified a number, 32 is the default number
-Given the user hasn't specified a number of events
-When the user opens the app
-Then the user should see 32 events in the events list
+- **Feature 2: Show/Hide Event Details**
+  - User Story: As an event-goer, I should be able to show/hide event details.
+  - Scenarios:
+    - An event element is collapsed by default.
+    - User can expand an event to see its details.
 
-Scenario 2: User can change the number of events they want to see
-Given the main page is open
-When the user changes the number of events in the input field
-Then the user should see the specified number of events in the events list
+- **Feature 3: Search Events by Date**
+  - User Story: As an event-goer, I should be able to search for events by date.
+  - Scenarios:
+    - User can search for events on a specific date.
+    - User can search for events within a date range.
 
-Scenario 3: User specifies 0 as the number of events
-Given the main page is open
-When the user specifies 0 as the number of events
-Then the user should see a message indicating no events are displayed
-
-Scenario 4: User specifies a number greater than the total number of available events
-Given the main page is open and there are 50 total events available
-When the user specifies 100 as the number of events
-Then the user should see all 50 available events in the events list
+- **Feature 4: Specify Number of Events**
+  - User Story: As an event-goer, I should be able to specify the number of events I want to view.
+  - Scenarios:
+    - When user hasn't sp
